@@ -1,5 +1,5 @@
-from mvcSistema.model.cursosModel import Curso
-import mvcSistema.view.cursosView as vista
+from mvcSistema.model.cursoModel import Curso
+import mvcSistema.view.cursoView as vista
 
 class CursosController:
 
