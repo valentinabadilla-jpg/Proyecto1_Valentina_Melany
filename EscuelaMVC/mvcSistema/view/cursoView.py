@@ -1,11 +1,12 @@
-class CursoView:
+def mostrarMensaje(mensaje):
+    print(mensaje)
 
-    def mostrar_curso(self, curso):
-        profesor = curso.profesor.nombre if curso.profesor else "Sin asignar"
-        print(f"{curso.codigo} - {curso.nombre} | Profesor: {profesor}")
-
-    def mostrar_lista(self, cursos):
-        if not cursos:
-            print("No hay cursos creados.")
+def mostrarLista(cursos):
+    print("\n--- LISTA DE CURSOS ---")
+    if not cursos:
+        print("No hay cursos registrados")
+    else:
         for curso in cursos:
-            self.mostrar_curso(curso)
+            print(curso.mostrarDatos())
+    print("-----------------------")
+    ##cambiado

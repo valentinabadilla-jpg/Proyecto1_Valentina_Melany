@@ -1,10 +1,12 @@
-class EstudianteView:
+def mostrarMensaje(mensaje):
+    print(mensaje)
 
-    def mostrar_estudiante(self, estudiante):
-        print(f"{estudiante.nombre} {estudiante.apellidos} | Grado: {estudiante.grado} | Correo: {estudiante.correo}")
-
-    def mostrar_lista(self, estudiantes):
-        if not estudiantes:
-            print("No hay estudiantes registrados.")
+def mostrarLista(estudiantes):
+    print("\n--- LISTA DE ESTUDIANTES ---")
+    if not estudiantes:
+        print("No hay estudiantes registrados")
+    else:
         for est in estudiantes:
-            self.mostrar_estudiante(est)
+            print(est.mostrarDatos())
+    print("----------------------------")
+    ##cambiado

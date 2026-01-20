@@ -1,18 +1,26 @@
-from mvcSistema.model.cursoModel import Curso
-from mvcSistema.view.cursoView import CursoView
+from mvcSistema.model.cursosModel import Curso
+import mvcSistema.view.cursosView as vista
 
-class CursoController:
+class CursosController:
 
-    def __init__(self, profesor_controller):
-        self.cursos = []
-        self.profesor_controller = profesor_controller
-        self.vista = CursoView()
+    def __init__(self, profesoresController):
+        self.listaCursos = []
+        self.profesoresController = profesoresController
 
-    def crear(self, nombre, codigo, nombre_profesor):
-        profesor = self.profesor_controller.obtener_profesor(nombre_profesor)
+    def crear(self, nombre, codigo, nombreProfesor):
+        profesor = self.profesoresController.obtenerProfesorPorNombre(nombreProfesor)
         curso = Curso(nombre, codigo, profesor)
-        self.cursos.append(curso)
-        print("Curso creado.")
+        self.listaCursos.append(curso)
+        vista.mostrarMensaje("Curso creado correctamente")
 
     def listar(self):
-        self.vista.mostrar_lista(self.cursos)
+        vista.mostrarLista(self.listaCursos)
+
+    def eliminar(self, codigo):
+        for curso in self.listaCursos:
+            if curso.codigo == codigo:
+                self.listaCursos.remove(curso)
+                vista.mostrarMensaje("Curso eliminado")
+                return
+        vista.mostrarMensaje("Curso no encontrado")
+        ##cambiado

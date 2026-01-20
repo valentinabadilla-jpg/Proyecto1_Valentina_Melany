@@ -1,25 +1,33 @@
-from mvcSistema.model.profesorModel import Profesor
-from mvcSistema.view.profesorView import ProfesorView
+from mvcSistema.model.profesoresModel import Profesor
+import mvcSistema.view.profesoresView as vista
 
-class ProfesorController:
+class ProfesoresController:
 
     def __init__(self):
-        self.profesores = []
-        self.vista = ProfesorView()
+        self.listaProfesores = []
 
     def registrar(self, datos):
         try:
             profesor = Profesor(*datos)
-            self.profesores.append(profesor)
-            print("Profesor registrado.")
+            self.listaProfesores.append(profesor)
+            vista.mostrarMensaje("Profesor registrado correctamente")
         except ValueError as error:
-            print(error)
+            vista.mostrarMensaje(error)
 
     def listar(self):
-        self.vista.mostrar_lista(self.profesores)
+        vista.mostrarLista(self.listaProfesores)
 
-    def obtener_profesor(self, nombre):
-        for prof in self.profesores:
+    def obtenerProfesorPorNombre(self, nombre):
+        for prof in self.listaProfesores:
             if prof.nombre.lower() == nombre.lower():
                 return prof
         return None
+
+    def eliminar(self, nombre):
+        profesor = self.obtenerProfesorPorNombre(nombre)
+        if profesor:
+            self.listaProfesores.remove(profesor)
+            vista.mostrarMensaje("Profesor eliminado")
+        else:
+            vista.mostrarMensaje("Profesor no encontrado")
+##cambiado
