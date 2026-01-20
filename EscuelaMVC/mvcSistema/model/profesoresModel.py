@@ -20,5 +20,12 @@ class Profesor:
         self.fechanacimiento = fechanacimiento
 
     def mostrarDatos(self):
-        return f"ID:{self.id} {self.nombre} {self.apellidos} | {self.especialidad}"
-    ##cambiado
+        return (
+            f"ID: {self.id} | "
+            f"Nombre: {self.nombre} {self.apellidos} | "
+            f"Especialidad: {self.especialidad} | "
+            f"Correo: {self.correo} | "
+            f"Teléfono: {self.telefono} | "
+            f"Dirección: {self.direccion} | "
+            f"Fecha Nac.: {self.fechanacimiento}"
+        )

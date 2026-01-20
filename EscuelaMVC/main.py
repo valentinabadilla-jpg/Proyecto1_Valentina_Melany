@@ -7,10 +7,10 @@ profesores = ProfesoresController()
 cursos = CursosController(profesores)
 
 while True:
-    print("\n===== MENÚ PRINCIPAL =====")
-    print("1. Gestión de Estudiantes")
-    print("2. Gestión de Profesores")
-    print("3. Gestión de Cursos")
+    print("\n===== MENU PRINCIPAL =====")
+    print("1. Gestion de Estudiantes")
+    print("2. Gestion de Profesores")
+    print("3. Gestion de Cursos")
     print("4. Salir")
 
     opcion = input("Seleccione: ")

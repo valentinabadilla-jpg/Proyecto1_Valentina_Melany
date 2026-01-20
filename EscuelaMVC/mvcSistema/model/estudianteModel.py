@@ -17,5 +17,12 @@ class Estudiante:
         self.correo = correo
 
     def mostrarDatos(self):
-        return f"ID:{self.id} {self.nombre} {self.apellidos} | Grado:{self.grado} | Correo:{self.correo}"
-    ##cambiado
+        return (
+            f"ID: {self.id} | "
+            f"Nombre: {self.nombre} {self.apellidos} | "
+            f"Edad: {self.edad} | "
+            f"Fecha Nac.: {self.fechanacimiento} | "
+            f"Dirección: {self.direccion} | "
+            f"Grado: {self.grado} | "
+            f"Correo: {self.correo}"
+        )
